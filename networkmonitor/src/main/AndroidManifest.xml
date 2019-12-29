@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="alirezat775.library.networkmonitor" />
+    package="alirezat775.library.networkmonitor">
+
+    <application>
+        <activity android:name=".NetworkMonitorActivity" />
+    </application>
+
+</manifest>
