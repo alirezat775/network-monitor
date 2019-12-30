@@ -1,5 +1,6 @@
-package alirezat775.library.networkmonitor
+package alirezat775.library.networkmonitor.view
 
+import alirezat775.library.networkmonitor.R
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 

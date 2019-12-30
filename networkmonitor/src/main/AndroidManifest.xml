@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="alirezat775.library.networkmonitor">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
-        <activity android:name=".NetworkMonitorActivity" />
+        <activity android:name=".view.NetworkMonitorActivity" />
     </application>
 
 </manifest>

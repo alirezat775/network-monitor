@@ -1,14 +1,18 @@
-package alirezat775.library.networkmonitor
+package alirezat775.library.networkmonitor.core
 
 import okhttp3.Headers
 import okhttp3.HttpUrl
 import okhttp3.RequestBody
-import okhttp3.ResponseBody
 
 /**
  * Author:  Alireza Tizfahm Fard
  * Date:    2019-12-30
  */
+
+data class NetworkModel(
+    val request: RequestNetworkModel,
+    val response: ResponseNetworkModel
+)
 
 data class RequestNetworkModel(
     val url: HttpUrl,
@@ -21,5 +25,5 @@ data class ResponseNetworkModel(
     val code: Int,
     val message: String,
     val headers: Headers,
-    val body: ResponseBody?
+    val body: String?
 )

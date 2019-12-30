@@ -1,5 +1,6 @@
 package alirezat775.library.networkmonitor
 
+import alirezat775.library.networkmonitor.view.NetworkMonitorActivity
 import android.content.Context
 import android.content.Context.SENSOR_SERVICE
 import android.content.Intent
