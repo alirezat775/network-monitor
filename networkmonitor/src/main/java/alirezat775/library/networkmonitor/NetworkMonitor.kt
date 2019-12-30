@@ -6,7 +6,6 @@ import android.content.Intent
 import android.hardware.SensorManager
 import com.squareup.seismic.ShakeDetector
 
-
 /**
  * Author:  Alireza Tizfahm Fard
  * Date:    2019-12-29
