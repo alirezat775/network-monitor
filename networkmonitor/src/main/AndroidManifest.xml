@@ -7,6 +7,9 @@
         <activity
             android:name=".view.NetworkMonitorActivity"
             android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.NetworkMonitorDetailActivity"
+            android:launchMode="singleInstance" />
     </application>
 
 </manifest>

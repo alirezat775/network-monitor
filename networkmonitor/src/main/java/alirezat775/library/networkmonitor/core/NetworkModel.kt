@@ -9,6 +9,7 @@ import okhttp3.RequestBody
  */
 
 data class NetworkModel(
+    val uuid: String,
     val request: RequestNetworkModel,
     val response: ResponseNetworkModel
 )
