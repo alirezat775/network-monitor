@@ -18,7 +18,7 @@
             android:layout_height="48dp"
             android:background="@android:drawable/editbox_background"
             android:gravity="center"
-            android:text="@string/request"
+            android:text="@string/network_request"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
             android:layout_height="48dp"
             android:background="@android:drawable/editbox_background"
             android:gravity="center"
-            android:text="@string/response"
+            android:text="@string/network_response"
             app:layout_constraintTop_toBottomOf="@+id/network_request_body" />
 
         <androidx.appcompat.widget.AppCompatTextView

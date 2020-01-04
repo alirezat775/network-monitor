@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="network_log_item_height">94dp</dimen>
+    <dimen name="network_default_margin">4dp</dimen>
+    <dimen name="network_default_padding">16dp</dimen>
+    <dimen name="network_default_text_size">14sp</dimen>
+    <dimen name="network_min_height">48dp</dimen>
+</resources>

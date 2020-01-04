@@ -8,7 +8,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.log_details.*
+import kotlinx.android.synthetic.main.network_log_details.*
 
 /**
  * Author:  Alireza Tizfahm Fard
@@ -19,7 +19,7 @@ class NetworkMonitorDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.log_details)
+        setContentView(R.layout.network_log_details)
         val uuid: String = intent.getStringExtra("uuid") ?: ""
         NetworkLogging.list.forEach {
             if (it.uuid == uuid) {

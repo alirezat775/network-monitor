@@ -4,6 +4,7 @@ import alirezat775.library.networkmonitor.R
 import alirezat775.library.networkmonitor.core.NetworkLogging
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.network_monitor_activity.*
@@ -33,5 +34,11 @@ class NetworkMonitorActivity : AppCompatActivity() {
                 startActivity(myIntent)
             }
         }
+
+        network_clear.setOnClickListener {
+            NetworkLogging.clear()
+            adapter.notifyDataSetChanged()
+        }
+
     }
 }

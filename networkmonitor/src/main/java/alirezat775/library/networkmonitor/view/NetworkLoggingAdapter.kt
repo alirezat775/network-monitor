@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.log_item.view.*
+import kotlinx.android.synthetic.main.network_log_item.view.*
 
 /**
  * Author:  Alireza Tizfahm Fard
@@ -40,7 +40,7 @@ open class NetworkLoggingAdapter : RecyclerView.Adapter<NetworkLoggingAdapter.Vi
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.log_item,
+                R.layout.network_log_item,
                 parent,
                 false
             )
@@ -58,9 +58,9 @@ open class NetworkLoggingAdapter : RecyclerView.Adapter<NetworkLoggingAdapter.Vi
         holder.status.text = list[position].response.code.toString()
         holder.itemView.context?.let {
             if (list[position].response.code < 400) {
-                holder.status.setTextColor(ContextCompat.getColor(it, R.color.green))
+                holder.status.setTextColor(ContextCompat.getColor(it, R.color.network_green))
             } else {
-                holder.status.setTextColor(ContextCompat.getColor(it, R.color.red))
+                holder.status.setTextColor(ContextCompat.getColor(it, R.color.network_red))
             }
         }
     }
