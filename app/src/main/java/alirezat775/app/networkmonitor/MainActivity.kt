@@ -16,16 +16,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         networkMonitor.register()
 
-        okHttp()
+        for (i in 0..10) {
+            okHttpGet(i)
+        }
     }
 
-    private fun okHttp() {
+    private fun okHttpGet(i: Int) {
         val client = OkHttpClient.Builder()
             .addInterceptor(NetworkMonitorInterceptor())
             .build()
 
         val request: Request = Request.Builder()
-            .url("https://www.google.com")
+            .url("https://jsonplaceholder.typicode.com/todos/$i")
             .build()
 
         client.newCall(request).enqueue(object : Callback {

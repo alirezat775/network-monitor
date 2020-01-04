@@ -1,7 +1,6 @@
 package alirezat775.library.networkmonitor.core
 
 import okhttp3.Headers
-import okhttp3.HttpUrl
 import okhttp3.RequestBody
 
 /**
@@ -15,7 +14,7 @@ data class NetworkModel(
 )
 
 data class RequestNetworkModel(
-    val url: HttpUrl,
+    val url: String,
     val method: String,
     val headers: Headers,
     val body: RequestBody?

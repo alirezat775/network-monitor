@@ -19,6 +19,8 @@ class NetworkLoggingAdapter : RecyclerView.Adapter<NetworkLoggingAdapter.ViewHol
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val url = itemView.network_url_log
+        val method = itemView.network_method_log
+        val status = itemView.network_status_log
     }
 
     fun addItems(list: MutableList<NetworkModel>) {
@@ -44,6 +46,8 @@ class NetworkLoggingAdapter : RecyclerView.Adapter<NetworkLoggingAdapter.ViewHol
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.url.text = list[position].request.url.encodedPath()
+        holder.url.text = list[position].request.url
+        holder.method.text = list[position].request.method
+        holder.status.text = list[position].response.code.toString()
     }
 }

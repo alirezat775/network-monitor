@@ -15,7 +15,7 @@ class NetworkMonitorInterceptor : Interceptor {
         val rq = chain.request()
         val rqModel =
             RequestNetworkModel(
-                rq.url(),
+                rq.url().host() + rq.url().encodedPath(),
                 rq.method(),
                 rq.headers(),
                 rq.body()
