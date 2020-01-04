@@ -1,11 +1,12 @@
 package alirezat775.library.networkmonitor
 
+import alirezat775.library.networkmonitor.core.NetworkLogging
+import alirezat775.library.networkmonitor.view.NetworkMonitorActivity
 import android.content.Context
 import android.content.Context.SENSOR_SERVICE
 import android.content.Intent
 import android.hardware.SensorManager
 import com.squareup.seismic.ShakeDetector
-
 
 /**
  * Author:  Alireza Tizfahm Fard
@@ -32,5 +33,6 @@ class NetworkMonitor(private val context: Context) {
     fun unRegister() {
         sensorManager = null
         shakeListener = null
+        NetworkLogging.clear()
     }
 }
