@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">networkmonitor</string>
+    <string name="request">Request</string>
+    <string name="response">Response</string>
 </resources>
