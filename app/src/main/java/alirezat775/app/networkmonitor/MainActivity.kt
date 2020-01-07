@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..10) {
             okHttpGet(i)
         }
+
         jsonObject = JSONObject()
         jsonObject.put("id", 1)
         jsonObject.put("title", "foo")
