@@ -54,7 +54,7 @@ object OkHttpHelper {
     }
 
     fun requestToString(request: Request): String? {
-        return if (request.body() == null) null else try {
+        return if (request.body() == null) "" else try {
             val copy = request.newBuilder().build()
             val buffer = Buffer()
             copy.body()!!.writeTo(buffer)

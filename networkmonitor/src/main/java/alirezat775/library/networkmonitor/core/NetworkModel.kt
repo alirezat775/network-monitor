@@ -18,7 +18,7 @@ data class RequestNetworkModel(
     val url: String,
     val method: String,
     val headers: Headers,
-    val body: RequestBody?
+    val body: String?
 )
 
 data class ResponseNetworkModel(
