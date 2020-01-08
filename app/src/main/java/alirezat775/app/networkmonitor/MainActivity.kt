@@ -3,6 +3,7 @@ package alirezat775.app.networkmonitor
 import alirezat775.library.networkmonitor.NetworkMonitor
 import alirezat775.library.networkmonitor.core.NetworkMonitorInterceptor
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
 import org.json.JSONObject
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         networkMonitor.register()
 
-        for (i in 0..10) {
+        for (i in 0..4) {
             okHttpGet(i)
         }
 
@@ -37,7 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         jsonObject = JSONObject()
         jsonObject.put("title", "foo")
-        okHttpPatch(jsonObject.toString())
+        Handler().postDelayed({
+            okHttpPatch(jsonObject.toString())
+        },5000)
+
     }
 
     private fun okHttpGet(i: Int) {

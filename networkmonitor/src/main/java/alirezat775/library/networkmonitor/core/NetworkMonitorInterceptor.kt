@@ -30,8 +30,13 @@ class NetworkMonitorInterceptor : Interceptor {
             rs.body()?.string()
         )
         val uuid = UUID.randomUUID().toString() + System.currentTimeMillis()
-        NetworkLogging.list.add(NetworkModel(uuid, rqModel, rsModel))
+        val networkModel = NetworkModel(uuid, rqModel, rsModel)
+        NetworkLogging.addItemListener?.addItem(networkModel)
+        if (!NetworkLogging.list.contains(networkModel)) {
+            NetworkLogging.list.add(networkModel)
+        }
         Log.d("TAG_TEST", rqModel.method)
         return rs
     }
+
 }

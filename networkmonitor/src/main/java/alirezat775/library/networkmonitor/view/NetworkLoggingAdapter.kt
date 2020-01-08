@@ -1,6 +1,7 @@
 package alirezat775.library.networkmonitor.view
 
 import alirezat775.library.networkmonitor.R
+import alirezat775.library.networkmonitor.core.NetworkLogging
 import alirezat775.library.networkmonitor.core.NetworkModel
 import android.view.LayoutInflater
 import android.view.View
@@ -34,7 +35,11 @@ open class NetworkLoggingAdapter : RecyclerView.Adapter<NetworkLoggingAdapter.Vi
     }
 
     fun addItem(networkModel: NetworkModel) {
-        this.list.add(networkModel)
+        if (!NetworkLogging.list.contains(networkModel)) {
+            this.list.add(networkModel)
+            notifyItemInserted(itemCount - 1)
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
