@@ -8,6 +8,7 @@ package alirezat775.networkmonitor.core
 object NetworkLogging {
 
     internal val list = mutableListOf<NetworkModel>()
+    internal var addItemListener: OnAddItemListener? = null
 
     fun clear() {
         list.clear()

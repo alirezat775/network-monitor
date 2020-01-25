@@ -3,6 +3,7 @@ package alirezat775.app.networkmonitor
 import alirezat775.networkmonitor.NetworkMonitor
 import alirezat775.networkmonitor.core.NetworkMonitorInterceptor
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
 import org.json.JSONObject
@@ -11,11 +12,12 @@ import java.io.IOException
 class MainActivity : AppCompatActivity() {
 
     private var networkMonitor = NetworkMonitor(this)
-    private val client by lazy { OkHttpClient.Builder()
+    private val client by lazy {
+        OkHttpClient.Builder()
             .addInterceptor(NetworkMonitorInterceptor())
             .build()
     }
-    private lateinit var jsonObject:JSONObject
+    private lateinit var jsonObject: JSONObject
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         jsonObject = JSONObject()
         jsonObject.put("title", "foo")
-        okHttpPatch(jsonObject.toString())
+
+        Handler().postDelayed({ okHttpPatch(jsonObject.toString()) }, 4000)
     }
 
     private fun okHttpGet(i: Int) {
@@ -55,31 +58,15 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun okHttpPost(body: String){
+    private fun okHttpPost(body: String) {
 
         val body = jsonObject.toString()
-        val requestBody: RequestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body)
-        val request:Request = Request.Builder()
-                .url("https://jsonplaceholder.typicode.com/posts")
-                .post(requestBody)
-                .build()
-
-        client.newCall(request).enqueue(object :Callback {
-            override fun onFailure(call: Call, e: IOException) {
-
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-
-            }
-    })
-    }
-
-    private fun okHttpDelete() {
+        val requestBody: RequestBody =
+            RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body)
         val request: Request = Request.Builder()
-                .url("https://jsonplaceholder.typicode.com/posts/1")
-                .delete()
-                .build()
+            .url("https://jsonplaceholder.typicode.com/posts")
+            .post(requestBody)
+            .build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
@@ -92,14 +79,32 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun okHttpPatch(body: String){
-        val requestBody: RequestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body)
-        val request :Request = Request.Builder()
-                .url("https://jsonplaceholder.typicode.com/posts/1")
-                .patch(requestBody)
-                .build()
+    private fun okHttpDelete() {
+        val request: Request = Request.Builder()
+            .url("https://jsonplaceholder.typicode.com/posts/1")
+            .delete()
+            .build()
 
-        client.newCall(request).enqueue(object :Callback {
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+
+            }
+        })
+    }
+
+    private fun okHttpPatch(body: String) {
+        val requestBody: RequestBody =
+            RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body)
+        val request: Request = Request.Builder()
+            .url("https://jsonplaceholder.typicode.com/posts/1")
+            .patch(requestBody)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
 
             }
@@ -110,6 +115,7 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
     override fun onDestroy() {
         super.onDestroy()
         networkMonitor.unRegister()

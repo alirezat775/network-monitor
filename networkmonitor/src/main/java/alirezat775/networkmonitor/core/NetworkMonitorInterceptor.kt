@@ -39,6 +39,7 @@ class NetworkMonitorInterceptor : Interceptor {
                 rsModel
             )
         )
+        NetworkLogging.addItemListener?.itemAdded()
         Log.d("TAG_TEST", rqModel.method)
         return rs
     }

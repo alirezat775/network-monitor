@@ -2,8 +2,10 @@ package alirezat775.networkmonitor.view
 
 import alirezat775.networkmonitor.R
 import alirezat775.networkmonitor.core.NetworkLogging
+import alirezat775.networkmonitor.core.OnAddItemListener
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.network_monitor_activity.*
@@ -16,12 +18,14 @@ import kotlinx.android.synthetic.main.network_monitor_activity.*
 
 class NetworkMonitorActivity : AppCompatActivity() {
 
+    private var handler = Handler()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.network_monitor_activity)
 
         val adapter = NetworkLoggingAdapter()
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
         adapter.addItems(NetworkLogging.list)
         adapter.notifyDataSetChanged()
@@ -38,6 +42,16 @@ class NetworkMonitorActivity : AppCompatActivity() {
         network_clear.setOnClickListener {
             NetworkLogging.clear()
             adapter.notifyDataSetChanged()
+        }
+
+        NetworkLogging.addItemListener = object : OnAddItemListener {
+            override fun itemAdded() {
+                handler.post {
+                    adapter.addItems(NetworkLogging.list)
+                    adapter.notifyDataSetChanged()
+                    recyclerView.layoutManager?.scrollToPosition(adapter.itemCount - 1)
+                }
+            }
         }
 
     }
