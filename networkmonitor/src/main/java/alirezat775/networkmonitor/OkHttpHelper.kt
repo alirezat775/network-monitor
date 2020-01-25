@@ -78,7 +78,7 @@ object OkHttpHelper {
             val contentType = responseBody.contentType()
             if (contentType != null) {
                 charset = try {
-                    contentType.charset(UTF8)
+                    contentType.charset(UTF8) ?: Charset.defaultCharset()
                 } catch (e: UnsupportedCharsetException) {
                     return null
                 }

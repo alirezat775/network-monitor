@@ -6,6 +6,7 @@
     android:layout_height="@dimen/network_log_item_height"
     android:layout_margin="@dimen/network_default_margin"
     android:background="@android:drawable/editbox_background"
+    android:layoutDirection="ltr"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
