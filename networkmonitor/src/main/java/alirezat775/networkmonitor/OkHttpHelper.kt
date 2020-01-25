@@ -1,4 +1,4 @@
-package alirezat775.library.networkmonitor
+package alirezat775.networkmonitor
 
 import android.text.TextUtils
 import okhttp3.Request
@@ -111,7 +111,9 @@ object OkHttpHelper {
         ) {
             return true
         }
-        val contentLength = stringToLong(response.header("Content-Length"))
+        val contentLength = stringToLong(
+            response.header("Content-Length")
+        )
         return contentLength != -1L || "chunked".equals(
             response.header("Transfer-Encoding"),
             ignoreCase = true

@@ -1,7 +1,7 @@
 package alirezat775.app.networkmonitor
 
-import alirezat775.library.networkmonitor.NetworkMonitor
-import alirezat775.library.networkmonitor.core.NetworkMonitorInterceptor
+import alirezat775.networkmonitor.NetworkMonitor
+import alirezat775.networkmonitor.core.NetworkMonitorInterceptor
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
