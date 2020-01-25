@@ -3,7 +3,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application>
+    <application android:supportsRtl="false">
         <activity
             android:name=".view.NetworkMonitorActivity"
             android:launchMode="singleInstance" />
