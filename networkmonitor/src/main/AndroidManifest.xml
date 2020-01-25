@@ -1,2 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="alirezat775.library.networkmonitor" />
+    package="alirezat775.networkmonitor">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity
+            android:name=".view.NetworkMonitorActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.NetworkMonitorDetailActivity"
+            android:launchMode="singleInstance" />
+    </application>
+
+</manifest>

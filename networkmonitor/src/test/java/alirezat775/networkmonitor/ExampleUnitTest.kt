@@ -1,4 +1,4 @@
-package alirezat775.library.networkmonitor
+package alirezat775.networkmonitor
 
 import org.junit.Test
 
