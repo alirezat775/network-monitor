@@ -1,0 +1,7 @@
+NetworkMonitor
+
+v 1.0.0 Released!
+
+- okHttp interceptor
+- list api call
+- detail api call (response & request)

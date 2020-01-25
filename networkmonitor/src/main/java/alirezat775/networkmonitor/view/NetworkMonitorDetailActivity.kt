@@ -1,7 +1,7 @@
-package alirezat775.library.networkmonitor.view
+package alirezat775.networkmonitor.view
 
-import alirezat775.library.networkmonitor.R
-import alirezat775.library.networkmonitor.core.NetworkLogging
+import alirezat775.networkmonitor.R
+import alirezat775.networkmonitor.core.NetworkLogging
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable

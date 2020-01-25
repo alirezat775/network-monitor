@@ -1,7 +1,6 @@
-package alirezat775.library.networkmonitor.core
+package alirezat775.networkmonitor.core
 
 import okhttp3.Headers
-import okhttp3.RequestBody
 
 /**
  * Author:  Alireza Tizfahm Fard
