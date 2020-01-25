@@ -6,10 +6,10 @@
     <application>
         <activity
             android:name=".view.NetworkMonitorActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTop" />
         <activity
             android:name=".view.NetworkMonitorDetailActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

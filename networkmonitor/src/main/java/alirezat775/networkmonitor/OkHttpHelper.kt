@@ -5,12 +5,9 @@ import okhttp3.Request
 import okhttp3.Response
 import okhttp3.internal.http.StatusLine
 import okio.Buffer
-import org.json.JSONArray
-import org.json.JSONException
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.nio.charset.Charset
-import java.nio.charset.UnsupportedCharsetException
 
 /**
  * Author:  Alireza Tizfahm Fard
@@ -66,36 +63,10 @@ object OkHttpHelper {
 
     fun responseToString(response: Response): String? {
         val responseBody = response.body()
-        if (hasBody(response)) {
-            val source = responseBody!!.source()
-            try {
-                source.request(Long.MAX_VALUE) // Buffer the entire body.
-            } catch (e: IOException) {
-                return null
-            }
-            val buffer = source.buffer()
-            var charset = UTF8
-            val contentType = responseBody.contentType()
-            if (contentType != null) {
-                charset = try {
-                    contentType.charset(UTF8) ?: Charset.defaultCharset()
-                } catch (e: UnsupportedCharsetException) {
-                    return null
-                }
-            }
-            if (responseBody.contentLength() != 0L) {
-                val jsonString = buffer.clone().readString(charset)
-                return try {
-                    val json = JSONArray(jsonString)
-                    json.toString(DEFAULT_INDENT_SPACES)
-                        .replace("\\\\/".toRegex(), "/")
-                } catch (e: JSONException) {
-                    null
-                }
-            }
-            return null
-        }
-        return null
+        val source = responseBody!!.source()
+        val buffer = source.buffer()
+        return buffer.readUtf8()
+        //return buffer.clone().readString(UTF8) ?: return buffer.readUtf8()
     }
 
     /**

@@ -23,12 +23,13 @@ class NetworkMonitorInterceptor : Interceptor {
                 OkHttpHelper.requestToString(rq)
             )
         val rs = chain.proceed(rq)
+
         val rsModel =
             ResponseNetworkModel(
                 rs.code(),
                 rs.message(),
                 rs.headers(),
-                OkHttpHelper.responseToString(rs)
+                rs.body()?.string()
             )
         val uuid = UUID.randomUUID().toString() + System.currentTimeMillis()
         NetworkLogging.list.add(
