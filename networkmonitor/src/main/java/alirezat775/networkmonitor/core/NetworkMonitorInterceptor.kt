@@ -1,7 +1,6 @@
 package alirezat775.networkmonitor.core
 
 import alirezat775.networkmonitor.OkHttpHelper
-import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.util.*
@@ -29,7 +28,7 @@ class NetworkMonitorInterceptor : Interceptor {
                 rs.code(),
                 rs.message(),
                 rs.headers(),
-                rs.body()?.string()
+                OkHttpHelper.responseToString(rs)
             )
         val uuid = UUID.randomUUID().toString() + System.currentTimeMillis()
         NetworkLogging.list.add(
@@ -40,7 +39,7 @@ class NetworkMonitorInterceptor : Interceptor {
             )
         )
         NetworkLogging.addItemListener?.itemAdded()
-        Log.d("TAG_TEST", rqModel.method)
+
         return rs
     }
 }
