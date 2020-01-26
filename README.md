@@ -25,7 +25,7 @@ add to root build.gradle
 add to module build.gradle
 ```groovy
 
-    implementation 'com.github.alirezat775.networkmonitor:{latest-version}'
+    implementation 'com.github.alirezat775.network-monitor:{latest-version}'
 
 ```
 

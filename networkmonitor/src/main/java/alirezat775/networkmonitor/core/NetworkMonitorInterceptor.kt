@@ -3,6 +3,7 @@ package alirezat775.networkmonitor.core
 import alirezat775.networkmonitor.OkHttpHelper
 import okhttp3.Interceptor
 import okhttp3.Response
+import java.nio.charset.Charset
 import java.util.*
 
 /**
@@ -24,12 +25,22 @@ class NetworkMonitorInterceptor : Interceptor {
             )
         val rs = chain.proceed(rq)
 
+        var responseString = ""
+        rs.body()?.let { body ->
+            val source = body.source()
+            source.request(java.lang.Long.MAX_VALUE)
+            val buffer = source.buffer()
+            val charsetRaw = body.contentType()?.charset(Charset.forName("UTF-8"))
+            charsetRaw?.let { charset ->
+                responseString = buffer.clone().readString(charset)
+            }
+        }
         val rsModel =
             ResponseNetworkModel(
                 rs.code(),
                 rs.message(),
                 rs.headers(),
-                rs.body()?.string()
+                responseString
             )
         val uuid = UUID.randomUUID().toString() + System.currentTimeMillis()
         NetworkLogging.list.add(
