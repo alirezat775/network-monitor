@@ -5,8 +5,8 @@ Useful library for monitoring android network request with okhttp
 
 Options
 - okHttp interceptor
-- list api call
-- detail api call (response & request)
+- list api calls
+- info api call (response & request)
  
 ### Issue
 - [bug report](.github/ISSUE_TEMPLATE/bug_report.md)

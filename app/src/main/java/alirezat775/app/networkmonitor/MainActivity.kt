@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun okHttpPost(body: String) {
-
         val body = jsonObject.toString()
         val requestBody: RequestBody =
             RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body)
