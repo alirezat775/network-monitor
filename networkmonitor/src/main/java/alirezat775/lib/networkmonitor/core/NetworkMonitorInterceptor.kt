@@ -1,6 +1,6 @@
-package alirezat775.networkmonitor.core
+package alirezat775.lib.networkmonitor.core
 
-import alirezat775.networkmonitor.OkHttpHelper
+import alirezat775.lib.networkmonitor.OkHttpHelper
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.nio.charset.Charset
@@ -35,21 +35,9 @@ class NetworkMonitorInterceptor : Interceptor {
                 responseString = buffer.clone().readString(charset)
             }
         }
-        val rsModel =
-            ResponseNetworkModel(
-                rs.code(),
-                rs.message(),
-                rs.headers(),
-                responseString
-            )
+        val rsModel = ResponseNetworkModel(rs.code(), rs.message(), rs.headers(), responseString)
         val uuid = UUID.randomUUID().toString() + System.currentTimeMillis()
-        NetworkLogging.list.add(
-            NetworkModel(
-                uuid,
-                rqModel,
-                rsModel
-            )
-        )
+        NetworkLogging.list.add(NetworkModel(uuid, rqModel, rsModel))
         NetworkLogging.addItemListener?.itemAdded()
 
         return rs
