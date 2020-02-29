@@ -1,7 +1,7 @@
 package alirezat775.app.networkmonitor
 
-import alirezat775.networkmonitor.NetworkMonitor
-import alirezat775.networkmonitor.core.NetworkMonitorInterceptor
+import alirezat775.lib.networkmonitor.NetworkMonitor
+import alirezat775.lib.networkmonitor.core.NetworkMonitorInterceptor
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +11,8 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
-    private var networkMonitor = NetworkMonitor(this)
+    private var networkMonitor =
+        NetworkMonitor(this)
     private val client by lazy {
         OkHttpClient.Builder()
             .addInterceptor(NetworkMonitorInterceptor())

@@ -1,7 +1,7 @@
-package alirezat775.networkmonitor.view
+package alirezat775.lib.networkmonitor.view
 
+import alirezat775.lib.networkmonitor.core.NetworkLogging
 import alirezat775.networkmonitor.R
-import alirezat775.networkmonitor.core.NetworkLogging
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
@@ -25,26 +25,17 @@ class NetworkMonitorDetailActivity : AppCompatActivity() {
             if (it.uuid == uuid) {
                 val rqUrl: Spannable = SpannableString("url: ${it.request.url}")
                 rqUrl.setSpan(
-                    ForegroundColorSpan(Color.BLACK),
-                    0,
-                    4,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    ForegroundColorSpan(Color.BLACK), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
                 val rqHeaders: Spannable = SpannableString("headers: ${it.request.headers}")
                 rqHeaders.setSpan(
-                    ForegroundColorSpan(Color.BLACK),
-                    0,
-                    8,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    ForegroundColorSpan(Color.BLACK), 0, 8, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
                 val rqBody: Spannable = SpannableString("body: ${it.request.body}")
                 rqBody.setSpan(
-                    ForegroundColorSpan(Color.BLACK),
-                    0,
-                    5,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    ForegroundColorSpan(Color.BLACK), 0, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
                 network_request_url.text = rqUrl
@@ -53,34 +44,22 @@ class NetworkMonitorDetailActivity : AppCompatActivity() {
 
                 val rsCode: Spannable = SpannableString("code: ${it.response.code}")
                 rsCode.setSpan(
-                    ForegroundColorSpan(Color.BLACK),
-                    0,
-                    5,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    ForegroundColorSpan(Color.BLACK), 0, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
                 val rsMessage: Spannable = SpannableString("message: ${it.response.message}")
                 rsMessage.setSpan(
-                    ForegroundColorSpan(Color.BLACK),
-                    0,
-                    8,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    ForegroundColorSpan(Color.BLACK), 0, 8, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
                 val rsHeaders: Spannable = SpannableString("headers: ${it.response.headers}")
                 rsHeaders.setSpan(
-                    ForegroundColorSpan(Color.BLACK),
-                    0,
-                    8,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    ForegroundColorSpan(Color.BLACK), 0, 8, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
                 val rsBody: Spannable = SpannableString("body: ${it.response.body}")
                 rsBody.setSpan(
-                    ForegroundColorSpan(Color.BLACK),
-                    0,
-                    5,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    ForegroundColorSpan(Color.BLACK), 0, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
                 network_response_code.text = rsCode
