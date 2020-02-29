@@ -1,4 +1,4 @@
-package alirezat775.networkmonitor.core
+package alirezat775.lib.networkmonitor.core
 
 /**
  * Author:  Alireza Tizfahm Fard

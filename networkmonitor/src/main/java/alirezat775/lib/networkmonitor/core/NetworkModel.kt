@@ -1,4 +1,4 @@
-package alirezat775.networkmonitor.core
+package alirezat775.lib.networkmonitor.core
 
 import okhttp3.Headers
 

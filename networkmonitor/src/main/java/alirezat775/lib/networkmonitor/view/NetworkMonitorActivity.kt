@@ -1,8 +1,8 @@
-package alirezat775.networkmonitor.view
+package alirezat775.lib.networkmonitor.view
 
+import alirezat775.lib.networkmonitor.core.NetworkLogging
+import alirezat775.lib.networkmonitor.core.OnAddItemListener
 import alirezat775.networkmonitor.R
-import alirezat775.networkmonitor.core.NetworkLogging
-import alirezat775.networkmonitor.core.OnAddItemListener
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -29,8 +29,7 @@ class NetworkMonitorActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         adapter.addItems(NetworkLogging.list)
         adapter.notifyDataSetChanged()
-        adapter.clickItem = object :
-            NetworkLoggingAdapter.ClickItem {
+        adapter.clickItem = object : NetworkLoggingAdapter.ClickItem {
             override fun onClick(uuid: String) {
                 val myIntent =
                     Intent(this@NetworkMonitorActivity, NetworkMonitorDetailActivity::class.java)

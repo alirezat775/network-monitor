@@ -2,14 +2,11 @@
     package="alirezat775.networkmonitor">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application>
-        <activity
-            android:name=".view.NetworkMonitorActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".view.NetworkMonitorDetailActivity"
-            android:launchMode="singleTop" />
+        <activity android:name="alirezat775.lib.networkmonitor.view.NetworkMonitorActivity" />
+        <activity android:name="alirezat775.lib.networkmonitor.view.NetworkMonitorDetailActivity" />
     </application>
 
 </manifest>

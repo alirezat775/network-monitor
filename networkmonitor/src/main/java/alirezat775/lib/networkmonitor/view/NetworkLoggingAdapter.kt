@@ -1,7 +1,7 @@
-package alirezat775.networkmonitor.view
+package alirezat775.lib.networkmonitor.view
 
 import alirezat775.networkmonitor.R
-import alirezat775.networkmonitor.core.NetworkModel
+import alirezat775.lib.networkmonitor.core.NetworkModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

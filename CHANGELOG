@@ -5,3 +5,19 @@ v 1.0.0 Released!
 - okHttp interceptor
 - list api call
 - detail api call (response & request)
+
+v 1.0.1 Released!
+
+- support persian
+
+v 1.0.2 Released!
+
+- fix minor bug
+
+v 1.0.3 Released!
+
+- fix HTTP response parsing
+
+v 1.0.4 Released!
+
+- refactor package name
