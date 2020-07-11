@@ -3,4 +3,6 @@
     <string name="network_request">Request</string>
     <string name="network_response">Response</string>
     <string name="network_clear">Clear</string>
+    <string name="network_response_copy">copy response</string>
+    <string name="network_response_copied">respose has been copied</string>
 </resources>
