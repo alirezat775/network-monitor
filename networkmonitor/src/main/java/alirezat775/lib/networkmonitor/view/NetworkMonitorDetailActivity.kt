@@ -2,11 +2,16 @@ package alirezat775.lib.networkmonitor.view
 
 import alirezat775.lib.networkmonitor.core.NetworkLogging
 import alirezat775.networkmonitor.R
+import android.annotation.SuppressLint
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.network_log_details.*
 
@@ -17,10 +22,22 @@ import kotlinx.android.synthetic.main.network_log_details.*
 
 class NetworkMonitorDetailActivity : AppCompatActivity() {
 
+    private var responseLog: String = ""
+
+    @SuppressLint("ShowToast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.network_log_details)
         val uuid: String = intent.getStringExtra("uuid") ?: ""
+
+        network_response_copy.setOnClickListener {
+            val clipboard: ClipboardManager =
+                getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("response", responseLog)
+            Toast.makeText(this, getString(R.string.network_response_copied), Toast.LENGTH_LONG)
+            clipboard.setPrimaryClip(clip)
+        }
+
         NetworkLogging.list.forEach {
             if (it.uuid == uuid) {
                 val rqUrl: Spannable = SpannableString("url: ${it.request.url}")
@@ -66,6 +83,9 @@ class NetworkMonitorDetailActivity : AppCompatActivity() {
                 network_response_message.text = rsMessage
                 network_response_header.text = rsHeaders
                 network_response_body.text = rsBody
+
+                responseLog =
+                    "status code:======== $rsCode \n======== \n message:======== $rsMessage \n======== \n headers:======== $rsHeaders \n======== \n body:========\n $rsBody \n========"
             }
 
         }
